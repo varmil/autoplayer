@@ -31,9 +31,9 @@ var ajax = function(url, postData, callback) {
 
 
 // 全過程の順序を司る
-var ParentDeferred = new $.Deferred().resolve();
+var parentDeferred = new $.Deferred().resolve();
 
-ParentDeferred
+parentDeferred
     .then(function() {
         var dealDeferred = new $.Deferred();
         var url = 'HOGE';
