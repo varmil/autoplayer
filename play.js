@@ -1,6 +1,5 @@
 // ----- Logic Start -----
 /**
- * TODO カード取捨選択
  * @param obj cards
  * @return array throwList ex) [1, 3, 4]
  */
@@ -49,7 +48,6 @@ parentDeferred
     })
     .then(function(cards) {
         var drawDeferred = new $.Deferred();
-        // カード取捨選択
         var throwList = decideThrowCards(cards);
         var url = 'FOO';
         var postData = { throw_list: throwList };
@@ -65,7 +63,6 @@ parentDeferred
     .then(function(payMedal) {
         var doubleStartDeferred = new $.Deferred();
         if (payMedal > 0) {
-            // 役が揃った時
             var url = 'HUGA';
             var postData = { };
 
@@ -75,7 +72,6 @@ parentDeferred
                 doubleStartDeferred.resolve(json.card_first);
             });
         } else {
-            // 負けた時は処理を中断
             doubleStartDeferred.reject('Restart Porker because of LOST');
         }
 
@@ -84,7 +80,6 @@ parentDeferred
     .then(function(card) {
         // TODO
     })
-    // rejectされた際のcallback(Error, 負けた際)
     .fail(function(message) {
         alert(message);
     });
