@@ -72,7 +72,7 @@ parentDeferred
                 doubleStartDeferred.resolve(json.card_first);
             });
         } else {
-            doubleStartDeferred.reject('Restart Porker because of LOST');
+            doubleStartDeferred.reject('Restart Game because of LOST');
         }
 
         return doubleStartDeferred;
